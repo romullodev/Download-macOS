@@ -16,8 +16,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Archive files
-        run:
-          mkfile -n 100k test_file		
+        run: |
+          mkfile -n 100k test_file
+	  pwd		
       
       - name: Upload to Google Drive
         uses: logickoder/g-drive-upload@main
