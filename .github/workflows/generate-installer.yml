@@ -2,10 +2,6 @@ name: Test Google Drive Upload File
 
 on:
   workflow_dispatch:
-
-defaults:
-      run:
-        working-directory: ./scripts
 jobs:
   my_job:
     runs-on: macos-latest
@@ -18,13 +14,12 @@ jobs:
       - name: Archive files
         run: |
           mkfile -n 100k test_file
-          ${{ github.workspace }}
       
       - name: Upload to Google Drive
         uses: logickoder/g-drive-upload@main
         with:
-          credentials: ${{ secrets.DRIVE_CREDENTIALS }}
+          credentials: ${{ secrets.DRIVE_V2_CREDENTIALS }}
           filename: 'test_file'
-          folderId: ${{ secrets.DRIVE_MACOS_FOLDER_ID }}
+          folderId: ${{ secrets.DRIVE_V2_MACOS_FOLDER_ID }}
           name: 'macos test file' # optional string
           overwrite: 'true' # optional boolean
