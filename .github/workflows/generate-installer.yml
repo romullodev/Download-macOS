@@ -2,6 +2,10 @@ name: Test Google Drive Upload File
 
 on:
   workflow_dispatch:
+
+defaults:
+      run:
+        working-directory: ./scripts
 jobs:
   my_job:
     runs-on: macos-latest
@@ -13,8 +17,10 @@ jobs:
 
       - name: Archive files
         run: |
-          mkfile -n 100k test_file
-	  mv test_file test_file_2
+          mkfile -n 100k test_file.txt
+	  mv ./test_file.txt ~/test_file.txt
+	  cd ~
+	  pwd		
       
       - name: Upload to Google Drive
         uses: logickoder/g-drive-upload@main
