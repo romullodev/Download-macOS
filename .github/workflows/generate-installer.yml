@@ -1,4 +1,4 @@
-name: Test Google Drive Upload File
+name: Upload Test File to Artifact
 
 on:
   workflow_dispatch:
@@ -11,15 +11,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Archive files
-        run: |
-          mkfile -n 100k test_file
+      - name: Archive file
+        run:
+          mkfile -n 900k test_file
       
-      - name: Upload to Google Drive
-        uses: logickoder/g-drive-upload@main
+      - name: Upload Test File
+        uses: actions/upload-artifact@v4
         with:
-          credentials: ${{ secrets.DRIVE_V2_CREDENTIALS }}
-          filename: 'test_file'
-          folderId: ${{ secrets.DRIVE_V2_MACOS_FOLDER_ID }}
-          name: 'macos test file' # optional string
-          overwrite: 'true' # optional boolean
+          name: test_file
+          path: "/Users/runner/work/Download-macOS/Download-macOS/test_file"
