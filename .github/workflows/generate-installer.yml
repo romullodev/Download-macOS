@@ -13,13 +13,13 @@ jobs:
 
       - name: Archive files
         run: |
-          sudo cat "exemplo" >> test.txt
+          mkfile -n 100k test_file.txt
 
       - name: Upload to gdrive
         uses: logickoder/g-drive-upload@main
         with:
           credentials: ${{ secrets.DRIVE_CREDENTIALS }}
-          filename: "test.txt"
+          filename: "test_file.txt"
           folderId: ${{ secrets.DRIVE_MACOS_FOLDER_ID }}
           name: "test.zip" # optional string
           overwrite: "true" # optional boolean
