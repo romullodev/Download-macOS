@@ -13,10 +13,10 @@ jobs:
 
       - name: Archive file
         run:
-          mkfile -n 900k test_file
+          mkfile -n 900k test_file.iso
       
       - name: Upload Test File
         uses: actions/upload-artifact@v4
         with:
-          name: test_file
-          path: "/Users/runner/work/Download-macOS/Download-macOS/test_file"
+          name: test_file.iso
+          path: "/Users/runner/work/Download-macOS/Download-macOS/test_file.iso"
