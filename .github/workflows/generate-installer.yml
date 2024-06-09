@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Archive files
-        run: |
+        run:
           mkfile -n 100k test_file.txt
 	  mv ./test_file.txt ~/test_file.txt
 	  cd ~
