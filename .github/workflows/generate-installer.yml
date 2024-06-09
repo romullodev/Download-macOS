@@ -73,7 +73,7 @@ jobs:
           hdiutil eject -force /Volumes/'Install macOS ${{ env.installer_name }}'
           hdiutil convert /tmp/'${{ env.installer_name }}'.dmg -format UDTO -o ~/Desktop/'${{ env.installer_name }}'
           mv -v ~/Desktop/'${{ env.installer_name }}'.cdr ~/Desktop/'${{ env.installer_name }}'.iso
-          mv ~/Desktop/'${{ env.installer_name }}'.iso ~/'${{ env.installer_name }}'.iso
+          mv ~/Desktop/'${{ env.installer_name }}'.iso /Users/runner/work/Download-macOS/Download-macOS/'${{ env.installer_name }}'.iso
           sudo rm -fv /tmp/'${{ env.installer_name }}'.dmg
 
       - if: github.event.inputs.file == 'zip'
