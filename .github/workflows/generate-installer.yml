@@ -82,9 +82,12 @@ jobs:
           zip -r 'Install macOS ${{ env.installer_name }}.zip' 'Install macOS ${{ env.installer_name }}.app'
           mv -v 'Install macOS ${{ env.installer_name }}.zip' ~/Desktop/'${{ env.installer_name }}.zip'
 
-      # Upload Installer
-      - name: Upload ${{ github.event.inputs.file }}
-        uses: actions/upload-artifact@v4
+      # Upload Installer to Google Drive
+      - name: Upload to gdrive
+        uses: adityak74/google-drive-upload-git-action@main
         with:
-          name: macOS ${{ env.installer_name }}
-          path: "~/Desktop/${{ env.installer_name }}.${{ github.event.inputs.file }}"
+          credentials: ${{ secrets.DRIVE_CREDENTIALS }}
+          filename: "archive.zip"
+          folderId: ${{ secrets.DRIVE_MACOS_FOLDER_ID }}
+          name: "test.zip" # optional string
+          overwrite: "true" # optional boolean
