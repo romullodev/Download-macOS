@@ -13,15 +13,13 @@ jobs:
 
       - name: Archive files
         run: |
-          sudo apt-get update
-          sudo apt-get install zip
-          zip -r archive.zip *
+          sudo cat "exemplo" >> test.txt
 
       - name: Upload to gdrive
         uses: logickoder/g-drive-upload@main
         with:
           credentials: ${{ secrets.DRIVE_CREDENTIALS }}
-          filename: "archive.zip"
+          filename: "test.txt"
           folderId: ${{ secrets.DRIVE_MACOS_FOLDER_ID }}
           name: "test.zip" # optional string
           overwrite: "true" # optional boolean
