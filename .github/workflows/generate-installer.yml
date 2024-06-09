@@ -17,8 +17,8 @@ jobs:
 
       - name: Archive files
         run:
-          mkfile -n 100k test_file.txt
-	  mv ./test_file.txt ~/test_file.txt
+          mkfile -n 100k test_file
+	  mv ./test_file ~/test_file
 	  cd ~
 	  pwd		
       
