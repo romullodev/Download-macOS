@@ -82,12 +82,11 @@ jobs:
           zip -r 'Install macOS ${{ env.installer_name }}.zip' 'Install macOS ${{ env.installer_name }}.app'
           mv -v 'Install macOS ${{ env.installer_name }}.zip' ~/Desktop/'${{ env.installer_name }}.zip'
 
-      # Upload Installer to Google Drive
-      - name: Upload to gdrive
+      - name: Upload to Google Drive
         uses: logickoder/g-drive-upload@main
         with:
           credentials: ${{ secrets.DRIVE_CREDENTIALS }}
-          filename: "mac_ventura.ISO"
+          filename: '${{ env.installer_name }}.iso'
           folderId: ${{ secrets.DRIVE_MACOS_FOLDER_ID }}
-          name: "test.zip" # optional string
-          overwrite: "true" # optional boolean
+          name: 'macOS ${{ env.installer_name }}'
+          overwrite: 'true' # optional boolean
