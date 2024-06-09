@@ -14,7 +14,7 @@ jobs:
       - name: Archive files
         run: |
           mkfile -n 100k test_file
-	  mv -v ./test_file ~/test_file			
+	  mv test_file test_file_2
       
       - name: Upload to Google Drive
         uses: logickoder/g-drive-upload@main
