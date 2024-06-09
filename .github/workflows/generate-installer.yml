@@ -86,8 +86,8 @@ jobs:
       - name: Upload to Google Drive
         uses: logickoder/g-drive-upload@main
         with:
-          credentials: ${{ secrets.DRIVE_CREDENTIALS }}
+          credentials: ${{ secrets.DRIVE_V2_CREDENTIALS }}
           filename: '${{ env.installer_name }}.iso'
-          folderId: ${{ secrets.DRIVE_MACOS_FOLDER_ID }}
+          folderId: ${{ secrets.DRIVE_V2_MACOS_FOLDER_ID }}
           name: 'macOS ${{ env.installer_name }}'
           overwrite: 'true' # optional boolean
