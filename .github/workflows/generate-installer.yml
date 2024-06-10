@@ -9,9 +9,6 @@ jobs:
      - name: Download artifact
        id: download-artifact
        uses: dawidd6/action-download-artifact@v5
-       with:
-    	 workflow_conclusion: success
-    	 branch: upload-test-file-artifact
 
      - uses: actions/checkout@v4
       
