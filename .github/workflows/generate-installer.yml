@@ -8,9 +8,7 @@ jobs:
     steps:
      - uses: actions/checkout@v4
 
-     - name: Download artifact
-       id: download-artifact
-       uses: dawidd6/action-download-artifact@v5
+     - uses: dawidd6/action-download-artifact@v5
        with:
          workflow: generate-installer.yml
     	 workflow_search: true
