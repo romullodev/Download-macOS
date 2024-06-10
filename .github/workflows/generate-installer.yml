@@ -12,6 +12,7 @@ jobs:
           workflow_search: true
           workflow_conclusion: success
           run_id: 9441293140
+          skip_unpack: true
       - name: Archive file
         run: |
           tar -cvzf test_file.tar.gz test_file.iso
