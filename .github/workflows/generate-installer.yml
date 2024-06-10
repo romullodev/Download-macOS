@@ -5,13 +5,13 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: dawidd6/action-download-artifact@v5
         with:
           workflow: generate-installer.yml
           workflow_search: true
           workflow_conclusion: success
           run_id: 9440385740
-      - uses: actions/checkout@v4
       - name: Archive file
         run: |
           tar -cvzf test_file.tar.gz test_file.iso
