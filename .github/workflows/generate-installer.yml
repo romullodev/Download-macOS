@@ -15,7 +15,7 @@ jobs:
           skip_unpack: true
       - name: Archive file
         run: |
-          tar -cvzf test_file.tar.gz test_file.iso
+          tar -cvzf test_file.tar.gz test_file.iso.zip
           split -n l/2 test_file.tar.gz "ISO-archive.part"
       - name: Upload to Google Drive A
         uses: logickoder/g-drive-upload@main
