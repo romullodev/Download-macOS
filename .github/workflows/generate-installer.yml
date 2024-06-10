@@ -11,7 +11,7 @@ jobs:
           workflow: generate-installer.yml
           workflow_search: true
           workflow_conclusion: success
-          run_id: 9440385740
+          run_id: 9441293140
       - name: Archive file
         run: |
           tar -cvzf test_file.tar.gz test_file.iso
