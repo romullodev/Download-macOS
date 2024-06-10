@@ -9,13 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: dawidd6/action-download-artifact@v5
+      - uses: actions/download-artifact@v4
         with:
-          workflow: generate-installer.yml
-          workflow_search: true
-          workflow_conclusion: success
-          run_id: 9448552974
-          skip_unpack: true
+          run-id: 9448552974
 
       - name: Split File
         run: |
