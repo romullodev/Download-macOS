@@ -19,11 +19,6 @@ jobs:
     	  branch: upload-test-file-artifact
     	  name: test_file.iso
       
-     - name: Archive file
-       run: |
-         tar -cvzf test_file.tar.gz test_file.iso
-         split -b 700k test_file.tar.gz "ISO-archive.part"
-      
      - name: Upload to Google Drive A
        uses: logickoder/g-drive-upload@main
        with:
