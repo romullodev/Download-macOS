@@ -6,7 +6,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/download-artifact@v4
-        with: null
+        with:
         run-id: 9440385740
         name: test_file.iso
       - uses: actions/checkout@v4
