@@ -13,6 +13,7 @@ jobs:
         id: download-artifact
         uses: dawidd6/action-download-artifact@v5
         with:
+          workflow: generate-installer.yml
     	  workflow_search: true
     	  workflow_conclusion: success
     	  branch: upload-test-file-artifact
@@ -29,7 +30,7 @@ jobs:
          credentials: ${{ secrets.DRIVE_V2_CREDENTIALS }}
          filename: 'ISO-archive.partaa'
          folderId: ${{ secrets.DRIVE_V2_MACOS_FOLDER_ID }}
-         name: 'macOS ${{ env.installer_name }}'
+         name: 'ISO-archive.partaa'
          overwrite: 'true' # optional boolean
 
      - name: Upload to Google Drive B
@@ -38,5 +39,5 @@ jobs:
          credentials: ${{ secrets.DRIVE_CREDENTIALS }}
          filename: 'ISO-archive.partab'
          folderId: ${{ secrets.DRIVE_MACOS_FOLDER_ID }}
-         name: 'macOS ${{ env.installer_name }}'
+         name: 'ISO-archive.partab'
          overwrite: 'true' # optional boolean
