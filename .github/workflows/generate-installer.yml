@@ -5,10 +5,13 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: dawidd6/action-download-artifact@v5
         with:
-          path: /Users/runner/work/Download-macOS/Download-macOS
-          run-id: 9440385740
+          workflow: generate-installer.yml
+          workflow_search: true
+          workflow_conclusion: success
+          branch: upload-test-file-artifact
+          run_id: 9440385740
       - uses: actions/checkout@v4
       - name: Archive file
         run: |
