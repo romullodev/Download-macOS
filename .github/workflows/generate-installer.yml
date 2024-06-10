@@ -7,9 +7,8 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          path: "/Users/runner/work/Download-macOS/Download-macOS/test_file.iso"
+          path: /Users/runner/work/Download-macOS/Download-macOS
           run-id: 9440385740
-          name: test_file.iso
       - uses: actions/checkout@v4
       - name: Archive file
         run: |
