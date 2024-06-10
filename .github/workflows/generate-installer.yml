@@ -6,17 +6,12 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-     - name: Download artifact
-       id: download-artifact
-       uses: dawidd6/action-download-artifact@master
-       with:
-         workflow: generate-installer.yml
-    	 workflow_search: true
-    	 workflow_conclusion: success
-    	 branch: upload-test-file-artifact
-    	 name: test_file.iso
+     - uses: actions/checkout@v4     
 
-     - uses: actions/checkout@v4
+     - uses: actions/download-artifact@v4
+       with:
+         name: test_file.iso
+	 run-id: 9440385740
       
      - name: Archive file
        run: |
@@ -30,7 +25,7 @@ jobs:
          filename: 'ISO-archive.partaa'
          folderId: ${{ secrets.DRIVE_V2_MACOS_FOLDER_ID }}
          name: 'ISO-archive.partaa'
-         overwrite: 'true' # optional boolean
+         overwrite: 'true'
 
      - name: Upload to Google Drive B
        uses: logickoder/g-drive-upload@main
@@ -39,4 +34,4 @@ jobs:
          filename: 'ISO-archive.partab'
          folderId: ${{ secrets.DRIVE_MACOS_FOLDER_ID }}
          name: 'ISO-archive.partab'
-         overwrite: 'true' # optional boolean
+         overwrite: 'true'
