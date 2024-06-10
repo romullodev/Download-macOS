@@ -19,7 +19,7 @@ jobs:
 
       - name: Split File
         run: |
-          tar -cvzf ventura.tar.gz 'macOS Ventura'.iso.zip
+          tar -cvzf ventura.tar.gz 'macOS Ventura'.zip
           split -n 2 ventura.tar.gz "ISO-archive.part"
 
       - name: Upload to Google Drive A
