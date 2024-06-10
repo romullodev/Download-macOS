@@ -7,14 +7,6 @@ jobs:
     runs-on: macos-latest
     steps:
      - uses: actions/checkout@v4
-
-     - uses: dawidd6/action-download-artifact@v5
-       with:
-         workflow: generate-installer.yml
-    	 workflow_search: true
-    	 workflow_conclusion: success
-    	 branch: upload-test-file-artifact
-    	 name: test_file.iso
       
      - name: Archive file
        run: |
