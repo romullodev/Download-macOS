@@ -8,16 +8,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Download artifact
-        id: download-artifact
-        uses: dawidd6/action-download-artifact@v5
-        with:
-          workflow: generate-installer.yml
-    	  workflow_search: true
-    	  workflow_conclusion: success
-    	  branch: upload-test-file-artifact
-    	  name: test_file.iso
+      
+     - name: Archive file
+       run: |
+         tar -cvzf test_file.tar.gz test_file.iso
+         split -b 700k test_file.tar.gz "ISO-archive.part"
       
      - name: Upload to Google Drive A
        uses: logickoder/g-drive-upload@main
