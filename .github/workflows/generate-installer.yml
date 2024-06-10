@@ -10,7 +10,6 @@ jobs:
           workflow: generate-installer.yml
           workflow_search: true
           workflow_conclusion: success
-          branch: upload-test-file-artifact
           run_id: 9440385740
       - uses: actions/checkout@v4
       - name: Archive file
